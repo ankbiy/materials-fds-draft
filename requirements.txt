@@ -1,5 +1,6 @@
 datascience
 otter-grader
+jupyterlite-xeus
 numpy
 matplotlib
 scipy
