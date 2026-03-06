@@ -1,7 +1,7 @@
 # Build JupyterLite (with xeus kernels) and deploy to GitHub Pages
 # Enable in repo: Settings → Pages → Source = "GitHub Actions"
 
-name: Deploy JupyterLite
+name: XeusLite
 
 on:
   push:
