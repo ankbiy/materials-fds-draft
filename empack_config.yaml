@@ -1,0 +1,45 @@
+# Empack file-filter config for jupyterlite-xeus (reduces bundle size).
+# Default rules from https://github.com/emscripten-forge/empack/blob/main/config/empack_config.yaml
+# Passed to build with: --XeusAddon.empack_config=empack_config.yaml
+
+packages:
+  setuptools:
+    exclude_patterns:
+      - pattern: '**/_distutils_hack/**'
+      - pattern: '**/distutils-precedence.pth'
+      - pattern: '**/setuptools/**'
+      - pattern: '**/pkg_resources/_vendor/**'
+  zlib:
+    exclude_patterns:
+      - pattern: '**/so'
+  widgetsnbextension:
+    exclude_patterns:
+      - pattern: '**'
+  numpy:
+    exclude_patterns:
+      - pattern: '**/*.pyx'
+      - pattern: '**/*.pyc'
+      - pattern: '**/*.typed'
+      - pattern: '**/*.egg-info'
+default:
+  exclude_patterns:
+    - pattern: 'bin/**'
+    - pattern: '**/bin/**'
+    - pattern: 'tests/**'
+    - pattern: '**/tests/**'
+    - pattern: '**/*.ini'
+    - pattern: '**/*.exe'
+    - pattern: '**/*.c'
+    - pattern: '**/*.pxd'
+    - pattern: '**/*.pyi'
+    - pattern: '**/*.pyx'
+    - pattern: '**/*.pyc'
+    - pattern: '**/*.typed'
+    - pattern: '**/*.egg-info'
+    - pattern: '**/site-packages/pip/_vendor/**'
+    - pattern: '**/idlelib/**'
+    - pattern: '**/ensurepip/**'
+    - pattern: 'Scripts/*'
+    - pattern: 'share/jupyter/nbextensions/**'
+    - pattern: 'share/jupyter/labextensions/**'
+    - pattern: 'etc/jupyter/nbconfig/**'
