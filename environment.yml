@@ -1,0 +1,14 @@
+# Environment for JupyterLite-xeus (Wasm kernels).
+# Used when building the site so the in-browser kernel has these packages.
+# https://jupyterlite-xeus.readthedocs.io/en/stable/
+
+name: xeus-kernels
+channels:
+  - https://prefix.dev/emscripten-forge-dev
+  - https://prefix.dev/conda-forge
+dependencies:
+  - xeus-python
+  - numpy
+  - matplotlib
+  - pandas
+  - scipy
