@@ -1,0 +1,14 @@
+{
+  "LiteBuildConfig": {
+    "contents": [
+      "README.md",
+      "LICENSE.md",
+      "assets",
+      "lectures",
+      "lab",
+      "hw",
+      "project",
+      "reference"
+    ]
+  }
+}
