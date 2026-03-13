@@ -43,13 +43,12 @@ jobs:
       - name: Build JupyterLite
         run: jupyter lite build \
             --XeusAddon.environment_file=environment.yml \
-            --XeusAddon.empack_config=empack_config.yaml \
-            --output-dir dist
+            --XeusAddon.empack_config=empack_config.yaml
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _output
 
   deploy:
     needs: build
