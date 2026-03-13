@@ -1,0 +1,13 @@
+# Conda env for the GitHub Actions runner that runs `jupyter lite build`.
+# Must include jupyterlite-core and jupyterlite-xeus so the xeus kernel is registered.
+# See: https://github.com/jupyterlite/xeus-lite-demo
+
+name: build-env
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - jupyter_server
+  - jupyterlite-core ">=0.7"
+  - jupyterlite-xeus ">=4.3"

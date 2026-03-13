@@ -26,27 +26,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Micromamba
+      - name: Set up Micromamba (build env with jupyterlite-core + jupyterlite-xeus)
         uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: "latest"
-          environment-name: jupyterlite
+          environment-file: .github/build-environment.yml
+          cache-environment: true
 
-      - name: Install JupyterLite-xeus
-        run: |
-          micromamba install -c conda-forge pip -y
-          pip install jupyterlite-xeus jupyter_server
-
-      - name: Build JupyterLite
+      - name: Build JupyterLite (kernel registered when build runs in activated env)
+        shell: bash -l {0}
         run: |
           jupyter lite build \
             --XeusAddon.environment_file=environment.yml \
-            --XeusAddon.empack_config=empack_config.yaml
+            --XeusAddon.empack_config=empack_config.yaml \
+            --output-dir dist
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _output
+          path: dist
 
   deploy:
     needs: build
