@@ -32,11 +32,10 @@ jobs:
           micromamba-version: "latest"
           environment-file: .github/build-environment.yml
           cache-environment: true
+          generate-run-shell: false
 
       - name: Build JupyterLite (kernel registered when build runs in activated env)
-        shell: bash -l {0}
-        run: |
-          jupyter lite build \
+        run: micromamba run -n build-env jupyter lite build \
             --XeusAddon.environment_file=environment.yml \
             --XeusAddon.empack_config=empack_config.yaml \
             --output-dir dist
