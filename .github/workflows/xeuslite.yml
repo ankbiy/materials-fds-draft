@@ -26,16 +26,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Micromamba (build env with jupyterlite-core + jupyterlite-xeus)
-        uses: mamba-org/setup-micromamba@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          micromamba-version: "latest"
-          environment-file: .github/build-environment.yml
-          cache-environment: true
-          generate-run-shell: false
+          python-version: "3.12"
 
-      - name: Build JupyterLite (kernel registered when build runs in activated env)
-        run: micromamba run -n build-env jupyter lite build \
+      - name: Install Micromamba (for xeus env from environment.yml)
+        run: |
+          curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+          mkdir -p "$HOME/.local/bin" && mv bin/micromamba "$HOME/.local/bin/"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install JupyterLite build deps (core + xeus + jupyter_server)
+        run: pip install "jupyterlite-core>=0.7" "jupyterlite-xeus>=4.3" jupyter_server
+
+      - name: Build JupyterLite
+        run: jupyter lite build \
             --XeusAddon.environment_file=environment.yml \
             --XeusAddon.empack_config=empack_config.yaml \
             --output-dir dist
