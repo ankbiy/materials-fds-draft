@@ -1,6 +1,7 @@
 {
   "LiteBuildConfig": {
     "contents": [
+      "START_HERE.md",
       "README.md",
       "LICENSE.md",
       "assets",
