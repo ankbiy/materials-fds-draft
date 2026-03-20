@@ -1,13 +1,15 @@
 # Run assignments with full support
 
-This site runs notebooks **in your browser**, but the in-browser kernel does not include the **datascience** package or **real otter grading**.
+**This page is the GitHub Pages site.** The kernel here runs in your browser and does **not** have the real `otter-grader` or the `datascience` package. So you will see otter-related errors or no real grading here.
 
-**To run your assignments flawlessly** (all packages + grading), use Binder:
+**Binder is a separate site.** The GitHub Actions workflow does not connect this page to Binder. To use otter-grader you must open Binder in a new tab and run your notebook there:
 
-**[Launch with Binder →](https://mybinder.org/v2/gh/ankbiy/materials-fds-draft/HEAD)**
+**[Open Binder (new tab) →](https://mybinder.org/v2/gh/ankbiy/materials-fds-draft/HEAD)**
 
-One click opens the same materials in a full Python environment with `datascience`, `otter-grader`, and all dependencies. Use that for homework and labs.
+- Click the link above. You will leave this site and open **mybinder.org**.
+- Wait for the Binder session to start (1–2 min), then open your assignment from the file browser.
+- Run the notebook **in that Binder tab**; otter-grader and datascience are installed there.
 
 ---
 
-*On this GitHub Pages site you can still browse and run notebooks; grading cells will not run tests (use Binder for that).*
+*On this GitHub Pages site you can browse and run notebooks, but grading cells will not run tests—use the Binder link above for that.*

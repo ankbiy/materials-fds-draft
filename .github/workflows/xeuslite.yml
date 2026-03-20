@@ -44,9 +44,7 @@ jobs:
         run: |
           jupyter lite build \
             --XeusAddon.environment_file=environment.yml \
-            --XeusAddon.empack_config=empack_config.yaml \
-            --XeusAddon.mounts=stub/otter:/lib/python3.11/site-packages/otter \
-            --XeusAddon.mounts=stub/otter:/lib/python3.12/site-packages/otter
+            --XeusAddon.empack_config=empack_config.yaml
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
